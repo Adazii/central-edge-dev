@@ -5,6 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Mail, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
@@ -13,13 +14,14 @@ export const Contact = () => {
     message: ""
   });
   const { toast } = useToast();
+  const { t } = useLanguage();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission here
     toast({
-      title: "Message sent!",
-      description: "Thank you for your interest. I'll get back to you soon.",
+      title: t('contact.messageSent'),
+      description: t('contact.messageDesc'),
     });
     setFormData({ name: "", email: "", message: "" });
   };
@@ -37,10 +39,10 @@ export const Contact = () => {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-heading font-bold mb-4 text-foreground slide-up">
-              Get In Touch
+              {t('contact.title')}
             </h2>
             <p className="text-lg text-muted-foreground slide-up">
-              Ready to discuss your Business Central needs? Let's start a conversation.
+              {t('contact.subtitle')}
             </p>
           </div>
 
@@ -49,7 +51,7 @@ export const Contact = () => {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-foreground">
                   <Send className="w-5 h-5 text-accent" />
-                  Send a Message
+                  {t('contact.sendMessage')}
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -58,7 +60,7 @@ export const Contact = () => {
                     <Input
                       type="text"
                       name="name"
-                      placeholder="Your Name"
+                      placeholder={t('contact.name')}
                       value={formData.name}
                       onChange={handleChange}
                       required
@@ -69,7 +71,7 @@ export const Contact = () => {
                     <Input
                       type="email"
                       name="email"
-                      placeholder="Your Email"
+                      placeholder={t('contact.email')}
                       value={formData.email}
                       onChange={handleChange}
                       required
@@ -79,7 +81,7 @@ export const Contact = () => {
                   <div>
                     <Textarea
                       name="message"
-                      placeholder="Tell me about your project..."
+                      placeholder={t('contact.message')}
                       value={formData.message}
                       onChange={handleChange}
                       required
@@ -88,7 +90,7 @@ export const Contact = () => {
                     />
                   </div>
                   <Button type="submit" variant="hero" className="w-full">
-                    Send Message
+                    {t('contact.send')}
                   </Button>
                 </form>
               </CardContent>
@@ -102,8 +104,8 @@ export const Contact = () => {
                       <Mail className="w-6 h-6 text-accent" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-foreground">Direct Email</h3>
-                      <p className="text-muted-foreground">For immediate contact</p>
+                      <h3 className="font-semibold text-foreground">{t('contact.directEmail')}</h3>
+                      <p className="text-muted-foreground">{t('contact.directEmailDesc')}</p>
                     </div>
                   </div>
                   <a 
@@ -116,19 +118,19 @@ export const Contact = () => {
               </Card>
 
               <div className="bg-primary/5 rounded-2xl p-6">
-                <h3 className="font-semibold text-foreground mb-3">What to expect</h3>
+                <h3 className="font-semibold text-foreground mb-3">{t('contact.expectTitle')}</h3>
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-start gap-2">
                     <div className="w-1.5 h-1.5 bg-accent rounded-full mt-2 flex-shrink-0"></div>
-                    Response within 24 hours
+                    {t('contact.expect1')}
                   </li>
                   <li className="flex items-start gap-2">
                     <div className="w-1.5 h-1.5 bg-accent rounded-full mt-2 flex-shrink-0"></div>
-                    Free initial consultation
+                    {t('contact.expect2')}
                   </li>
                   <li className="flex items-start gap-2">
                     <div className="w-1.5 h-1.5 bg-accent rounded-full mt-2 flex-shrink-0"></div>
-                    Custom solution proposal
+                    {t('contact.expect3')}
                   </li>
                 </ul>
               </div>

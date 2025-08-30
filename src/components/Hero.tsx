@@ -1,7 +1,10 @@
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
 import heroImage from "@/assets/hero-bg.jpg";
 
 export const Hero = () => {
+  const { t } = useLanguage();
+  
   return (
     <section className="relative min-h-screen flex items-center justify-center hero-gradient overflow-hidden">
       <div 
@@ -15,10 +18,10 @@ export const Hero = () => {
       <div className="relative z-10 container mx-auto px-6 text-center text-white">
         <div className="max-w-4xl mx-auto fade-in">
           <h1 className="text-display font-bold mb-6">
-            Central Edge
+            {t('hero.title')}
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-white/90 max-w-2xl mx-auto">
-            Smarter Business Central development
+            {t('hero.tagline')}
           </p>
           <Button 
             variant="hero" 
@@ -26,7 +29,7 @@ export const Hero = () => {
             className="text-lg px-8 py-6 h-auto"
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
           >
-            Get in touch
+            {t('hero.cta')}
           </Button>
         </div>
       </div>

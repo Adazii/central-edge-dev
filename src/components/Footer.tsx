@@ -1,14 +1,17 @@
 import { Github, Linkedin } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export const Footer = () => {
+  const { t } = useLanguage();
+  
   return (
     <footer className="bg-primary text-primary-foreground py-12">
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-6 md:mb-0">
-            <h3 className="text-2xl font-bold mb-2">Central Edge</h3>
+            <h3 className="text-2xl font-bold mb-2">{t('hero.title')}</h3>
             <p className="text-primary-foreground/80">
-              Smarter Business Central development
+              {t('footer.tagline')}
             </p>
           </div>
           
@@ -32,7 +35,7 @@ export const Footer = () => {
         
         <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center">
           <p className="text-primary-foreground/70 text-sm">
-            © {new Date().getFullYear()} Central Edge. All rights reserved.
+            © {new Date().getFullYear()} {t('hero.title')}. {t('footer.copyright')}
           </p>
         </div>
       </div>

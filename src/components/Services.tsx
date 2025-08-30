@@ -1,25 +1,28 @@
 import { Code, Link, MessageCircle } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export const Services = () => {
+  const { t } = useLanguage();
+  
   const services = [
     {
       icon: Code,
-      title: "Business Central Extensions",
-      description: "AL development, custom reports, and specialized modules tailored to your business needs.",
-      features: ["AL Development", "Custom Reports", "Module Development", "Code Optimization"]
+      title: t('services.extensions'),
+      description: t('services.extensionsDesc'),
+      features: [t('features.alDevelopment'), t('features.customReports'), t('features.moduleDevelopment'), t('features.codeOptimization')]
     },
     {
       icon: Link,
-      title: "Integrations",
-      description: "Seamless API connections, Power Platform integration, and Dataverse synchronization.",
-      features: ["API Connections", "Power Platform", "Dataverse Sync", "Third-party Integration"]
+      title: t('services.integrations'),
+      description: t('services.integrationsDesc'),
+      features: [t('features.apiConnections'), t('features.powerPlatform'), t('features.dataverseSync'), t('features.thirdPartyIntegration')]
     },
     {
       icon: MessageCircle,
-      title: "Consulting & Advisory",
-      description: "Efficiency improvements, solution architecture, and strategic technology guidance.",
-      features: ["Solution Design", "Performance Optimization", "Best Practices", "Technical Strategy"]
+      title: t('services.consulting'),
+      description: t('services.consultingDesc'),
+      features: [t('features.solutionDesign'), t('features.performanceOptimization'), t('features.bestPractices'), t('features.technicalStrategy')]
     }
   ];
 
@@ -28,10 +31,10 @@ export const Services = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-heading font-bold mb-4 text-foreground slide-up">
-            Services
+            {t('services.title')}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto slide-up">
-            Comprehensive Business Central solutions designed to optimize your operations
+            {t('services.subtitle')}
           </p>
         </div>
 
