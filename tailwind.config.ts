@@ -63,6 +63,17 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				}
 			},
+			fontFamily: {
+				sans: ['Inter', 'system-ui', 'sans-serif'],
+			},
+			fontSize: {
+				'display': ['3.5rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
+				'heading': ['2.25rem', { lineHeight: '1.2', letterSpacing: '-0.01em' }],
+			},
+			spacing: {
+				'18': '4.5rem',
+				'88': '22rem',
+			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
